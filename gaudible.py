@@ -15,18 +15,20 @@ from gi.repository import GLib
 
 
 DEFAULT_PLAYER  = '/usr/bin/paplay'
-DEFAULT_FILE    = '/usr/share/sounds/freedesktop/stereo/bell.oga'
+DEFAULT_FILE    = '/usr/share/sounds/freedesktop/stereo/complete.oga'
 DEFAULT_RATE_MS = 500
 
 FILTERS = {
-    'calendar':        ('org.gtk.Notifications', 'AddNotification', 'org.gnome.Evolution-alarm-notify'),
-    'calendar-legacy': ('org.freedesktop.Notifications', 'Notify', 'Evolution Reminders'),
-    'firefox':         ('org.freedesktop.Notifications', 'Notify', 'Firefox'),
-    'notify-send':     ('org.freedesktop.Notifications', 'Notify', 'notify-send'),
+    'calendar':                     ('org.gtk.Notifications', 'AddNotification', 'org.gnome.Evolution-alarm-notify'),
+    'calendar-legacy':              ('org.freedesktop.Notifications', 'Notify', 'Evolution Reminders'),
+    'firefox':                      ('org.freedesktop.Notifications', 'Notify', 'Firefox'),
+    'firefox-developer-edition':    ('org.freedesktop.Notifications', 'Notify', 'Firefox Developer Edition'),
+    'chromium':                     ('org.freedesktop.Notifications', 'Notify', 'Chromium'),
+    'google-chrome-stable':         ('org.freedesktop.Notifications', 'Notify', 'Google Chrome'),
+    'notify-send':                  ('org.freedesktop.Notifications', 'Notify', 'notify-send'),
 }
 
 PATTERN_BLOB = re.compile(r'\[(dbus.Byte\(\d+\)(, )?){5,}\]')
-
 LOG = logging.getLogger('gaudible')  # type: logging.Logger
 
 

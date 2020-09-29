@@ -2,9 +2,6 @@
 
 set -xe
 
-SOUND_FILE="${SOUND_FILE:-$HOME/.local/share/sounds/Dave/starlabs/dialog-warning.oga}"
-
-
 cd "$(dirname $(realpath $0))"
 
 # Move the executable into place
@@ -17,7 +14,7 @@ if [[ "$(cat /etc/redhat-release)" =~ ^CentOS\ Linux\ release\ 7 ]]; then
 		[Desktop Entry]
 		Name=gaudible
 		Type=Application
-		Exec=/home/ddb/bin/gaudible --file '$SOUND_FILE'
+		Exec=/home/ddb/bin/gaudible
 		Hidden=false
 		NoDisplay=false
 		Terminal=false
@@ -30,7 +27,7 @@ fi
 mkdir -p ~/.config/systemd/user
 cat <<-EOT > ~/.config/systemd/user/gaudible.service
 	[Service]
-	ExecStart=$HOME/bin/gaudible --file "$SOUND_FILE"
+	ExecStart=$HOME/bin/gaudible
 	Restart=always
 	NoNewPrivileges=true
 
